@@ -10,3 +10,6 @@ soundfile==0.12.1
 # Batch decode
 requests==2.31.0
 pandas==2.2.2
+
+# Elasticsearch indexing
+elasticsearch==8.13.0

@@ -1,0 +1,48 @@
+# Task 4: 2-node Elasticsearch cluster
+# Accessible at http://localhost:9200
+# Index: cv-transcriptions
+
+version: '3.8'
+
+services:
+  elasticsearch-node1:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.0
+    container_name: elasticsearch-node1
+    environment:
+      - node.name=elasticsearch-node1
+      - cluster.name=cv-cluster
+      - discovery.seed_hosts=elasticsearch-node2
+      - cluster.initial_master_nodes=elasticsearch-node1,elasticsearch-node2
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+    networks:
+      - elastic
+
+  elasticsearch-node2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.0
+    container_name: elasticsearch-node2
+    environment:
+      - node.name=elasticsearch-node2
+      - cluster.name=cv-cluster
+      - discovery.seed_hosts=elasticsearch-node1
+      - cluster.initial_master_nodes=elasticsearch-node1,elasticsearch-node2
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elastic
+
+networks:
+  elastic:
+    driver: bridge
