@@ -1,0 +1,14 @@
+# Task 5: Search UI frontend container
+# Accessible at http://localhost:3000
+
+version: '3.8'
+
+services:
+  search-ui:
+    build: .
+    container_name: search-ui
+    ports:
+      - "3000:3000"
+    environment:
+      - CI=true
+      - CHOKIDAR_USEPOLLING=true
