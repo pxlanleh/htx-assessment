@@ -1,0 +1,12 @@
+# ASR API
+fastapi==0.111.0
+uvicorn==0.29.0
+python-multipart==0.0.9
+transformers==4.41.0
+torch==2.3.0
+librosa==0.10.2
+soundfile==0.12.1
+
+# Batch decode
+requests==2.31.0
+pandas==2.2.2
