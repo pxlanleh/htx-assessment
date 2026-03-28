@@ -1,6 +1,5 @@
 // Task 5: Search UI frontend
 // Connects to Elasticsearch at http://localhost:9200
-// Allows searching and filtering on generated_text, duration, age, gender, accent
 
 import React from "react";
 import ElasticsearchAPIConnector from "@elastic/search-ui-elasticsearch-connector";
@@ -18,22 +17,18 @@ import {
 import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
 
-// Connect directly to Elasticsearch
 const connector = new ElasticsearchAPIConnector({
   host: "http://localhost:9200",
   index: "cv-transcriptions",
 });
 
-// Search configuration
 const config = {
   apiConnector: connector,
   alwaysSearchOnInitialLoad: true,
   searchQuery: {
-    // Fields to search through
     search_fields: {
       generated_text: { weight: 3 },
     },
-    // Fields to display in results — snippet enables search term highlighting
     result_fields: {
       filename:       { raw: {} },
       generated_text: { raw: {}, snippet: { size: 200, fallback: true } },
@@ -42,7 +37,6 @@ const config = {
       gender:         { raw: {} },
       accent:         { raw: {} },
     },
-    // Facets for filtering
     facets: {
       age:    { type: "value", size: 10 },
       gender: { type: "value", size: 10 },
@@ -57,7 +51,6 @@ const config = {
         ],
       },
     },
-    // Keep all filter options visible after selection
     disjunctiveFacets: ["gender", "age", "accent"],
   },
 };
