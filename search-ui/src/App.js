@@ -1,6 +1,4 @@
 // Task 5: Search UI frontend
-// Connects to Elasticsearch at http://localhost:9200
-
 import React from "react";
 import ElasticsearchAPIConnector from "@elastic/search-ui-elasticsearch-connector";
 import {
@@ -16,6 +14,7 @@ import {
 } from "@elastic/react-search-ui";
 import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
+import "./custom.css";
 
 const connector = new ElasticsearchAPIConnector({
   host: "http://localhost:9200",

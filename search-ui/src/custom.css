@@ -1,0 +1,70 @@
+/* Custom styles for Search UI */
+
+body {
+  background-color: #fff5eb;
+}
+
+.sui-facet {
+  border: 1px solid #e0c9a6;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background-color: #fff;
+}
+
+.sui-facet__title {
+  color: #000 !important;
+  font-weight: 700 !important;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.sui-facet__list .sui-multi-checkbox-facet__option-label {
+  border-bottom: 1px solid #d4a96a;
+  padding: 6px 0;
+}
+
+.sui-facet__list .sui-multi-checkbox-facet__option-label:last-child {
+  border-bottom: none;
+}
+
+.sui-search-box__submit {
+  background-color: #e8751a !important;
+  border: none !important;
+  border-radius: 6px !important;
+  color: #fff !important;
+  font-weight: 600;
+  padding: 10px 24px !important;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sui-search-box__submit:hover {
+  background-color: #cf6515 !important;
+}
+
+.sui-search-box__text-input {
+  border-radius: 6px !important;
+  border: 1px solid #d4a96a !important;
+}
+
+.sui-result {
+  border-bottom: 2px solid #333 !important;
+  background-color: #fff5eb !important;
+}
+
+.sui-layout-body__inner {
+  background-color: #fff5eb !important;
+}
+
+.sui-layout-main {
+  background-color: #fff5eb !important;
+}
+
+.sui-layout-header {
+  background-color: #fff !important;
+}
+
+.sui-layout-sidebar {
+  background-color: #fff5eb;
+}

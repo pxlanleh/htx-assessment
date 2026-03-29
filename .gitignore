@@ -16,3 +16,4 @@ __pycache__/
 cv-valid-dev/
 common_voice.zip
 *.log
+*.pem

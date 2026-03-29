@@ -1,6 +1,5 @@
 # Task 4: 2-node Elasticsearch cluster
 # Accessible at http://localhost:9200
-# Index: cv-transcriptions
 
 version: '3.8'
 

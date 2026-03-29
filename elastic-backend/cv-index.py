@@ -1,6 +1,4 @@
-"""
-Task 4e: Index cv-valid-dev.csv into Elasticsearch.
-"""
+# Task 4e: Index cv-valid-dev.csv into Elasticsearch.
 
 import pandas as pd
 from elasticsearch import Elasticsearch, helpers
@@ -8,7 +6,6 @@ from elasticsearch import Elasticsearch, helpers
 ES_URL = "http://localhost:9200"
 INDEX_NAME = "cv-transcriptions"
 CSV_PATH = "../asr/cv-valid-dev/cv-valid-dev.csv"
-
 
 def create_index(es: Elasticsearch):
     mappings = {
@@ -29,10 +26,8 @@ def create_index(es: Elasticsearch):
     else:
         print(f"Index already exists: {INDEX_NAME}")
 
-
 def clean(value, default=""):
     return default if pd.isna(value) else value
-
 
 def generate_docs(df: pd.DataFrame):
     for _, row in df.iterrows():
@@ -48,7 +43,6 @@ def generate_docs(df: pd.DataFrame):
             }
         }
 
-
 def main():
     es = Elasticsearch(ES_URL)
 
@@ -59,14 +53,12 @@ def main():
     print(f"Connected to Elasticsearch at {ES_URL}")
 
     create_index(es)
-
     df = pd.read_csv(CSV_PATH)
     total = len(df)
     print(f"Indexing {total} records into '{INDEX_NAME}'...")
 
     success, failed = helpers.bulk(es, generate_docs(df), raise_on_error=False)
     print(f"Done. {success} indexed, {failed} failed.")
-
 
 if __name__ == "__main__":
     main()

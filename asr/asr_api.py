@@ -30,13 +30,8 @@ async def transcribe(file: UploadFile = File(...)):
         tmp_path = tmp.name
 
     try:
-        # Load audio, resample to 16kHz and convert to mono in one step
         waveform, _ = librosa.load(tmp_path, sr=16000, mono=True)
-
-        # Calculate duration in seconds
         duration = round(len(waveform) / 16000, 1)
-
-        # Run inference
         inputs = processor(
             waveform, sampling_rate=16000, return_tensors="pt", padding=True
         )
@@ -48,5 +43,4 @@ async def transcribe(file: UploadFile = File(...)):
         return {"transcription": transcription, "duration": str(duration)}
 
     finally:
-        # Delete the uploaded file after processing
         os.remove(tmp_path)
