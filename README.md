@@ -19,6 +19,7 @@ htx-assessment/
 │   ├── Dockerfile
 │   ├── src/App.js
 │   └── package.json
+├── essay.pdf              # Task 8 — Model monitoring essay
 ├── requirements.txt
 ├── .gitignore
 └── README.md
