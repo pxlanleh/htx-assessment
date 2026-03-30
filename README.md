@@ -1,5 +1,7 @@
 # HTX Assessment
 
+**Candidate:** Phelan Lee
+
 ## Repository Structure
 
 ```
@@ -74,4 +76,4 @@ docker compose up --build -d
 - **Task 2:** Audio inputs are resampled to 16kHz mono before inference. Uploaded files are deleted after processing.
 - **Task 3:** Single EC2 instance hosts all containers for free tier compatibility. In production, a 2-node Elasticsearch cluster across separate instances is recommended.
 - **Task 5:** Search UI connects directly to Elasticsearch. In production, a backend proxy should be used.
-- **Task 6:** Single Elasticsearch node used due to free tier memory constraints. 2-node configuration preserved in `elastic-backend/docker-compose.yml`.
+- **Task 6:** Single Elasticsearch node used due to free tier memory constraints. 2-node configuration preserved in `elastic-backend/docker-compose.yml`. Elasticsearch exposed on port 8080 instead of 9200 for broader network compatibility.
